@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.nelioalves.domain.Categoria;
-import com.nelioalves.service.CategoriaService;
+import com.nelioalves.services.CategoriaService;
 
 @RestController
 @RequestMapping("/categorias")
