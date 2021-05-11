@@ -102,11 +102,11 @@ public class PedidosApplication implements CommandLineRunner {
 		estadoRepository.saveAll(Arrays.asList(est1, est2));
 		cidadeRepository.saveAll(Arrays.asList(c1, c2, c3));
 		
-		Cliente cli1 = new Cliente(null, "Leonardo Almeida", "leonardo@gmail.com", "03746549728", TipoCliente.PESSOAFISICA);
-		cli1.getTelefones().addAll(Arrays.asList("991054374", "979615072"));
+		Cliente cli1 = new Cliente(null, "Sophia Nicole Corte Real", "sophia.nicole@gmail.com", "27604739105", TipoCliente.PESSOAFISICA);
+		cli1.getTelefones().addAll(Arrays.asList("999999999", "888888888"));
 		
-		Endereco e1 = new Endereco(null, "Estrada da Cachamorra", "1233", "bloco 11 apto 210", "Campo Grande", "23040150", cli1, c1);
-		Endereco e2 = new Endereco(null, "Rua Murilo Alvarenga", "65", "bloco 2 apto 206", "Campo Grande", "22090180", cli1, c1);
+		Endereco e1 = new Endereco(null, "Rua Vicente Passífico Rodrigues", "708", "casa 1", "Jardim Paraíso", "89226643", cli1, c1);
+		Endereco e2 = new Endereco(null, "Avenida Esquadrão Falção", "462", "casa 2", "Infraero", "68908887", cli1, c1);
 		
 		cli1.getEnderecos().addAll(Arrays.asList(e1, e2));
 		
