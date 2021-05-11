@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.nelioalves.enums.EstadoPagamento;
 
 @Entity
-@Table(name = "pagamentos_com_boleto")
+@Table(name = "pagamento_com_boleto")
 @JsonTypeName("pagamentoComBoleto")
 public class PagamentoComBoleto extends Pagamento {
 	private static final long serialVersionUID = 1L;
