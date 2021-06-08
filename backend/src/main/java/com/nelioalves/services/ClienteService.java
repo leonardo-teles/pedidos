@@ -16,9 +16,12 @@ import com.nelioalves.domain.Cliente;
 import com.nelioalves.domain.Endereco;
 import com.nelioalves.dto.ClienteDTO;
 import com.nelioalves.dto.ClienteNewDTO;
+import com.nelioalves.enums.Perfil;
 import com.nelioalves.enums.TipoCliente;
 import com.nelioalves.repositories.ClienteRepository;
 import com.nelioalves.repositories.EnderecoRepository;
+import com.nelioalves.security.UserSS;
+import com.nelioalves.services.exception.AuthorizationException;
 import com.nelioalves.services.exception.DataIntegrityException;
 import com.nelioalves.services.exception.ObjectNotFoundException;
 
@@ -35,6 +38,13 @@ public class ClienteService {
 	private BCryptPasswordEncoder pe;
 	
 	public Cliente find(Integer id) {
+		
+		UserSS user = UserService.authenticated();
+		
+		if(user == null || !user.hasRole(Perfil.ADMIN) && !id.equals(user.getId())) {
+			throw new AuthorizationException("Acesso negado");
+		}
+		
 		Optional<Cliente> opt = repo.findById(id);
 		
 		return opt.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado. Id: " + id + ", Tipo: " + Cliente.class.getName()));
